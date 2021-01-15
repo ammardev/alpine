@@ -1,3 +1,5 @@
+<div dir="rtl">
+
 # Alpine.js
 
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/alpinejs)
@@ -35,41 +37,69 @@
 
 **باستعمال CDN:** أضف السطر البرمجي التالي في نهاية `<head>`. 
 
+
+<div dir="ltr">
+
 ```html
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 ```
+
+</div>
 
 سيقوم Alpine.js بتهيئة نفسه، سهلة أليس كذلك!
 
 في بيئات التطوير، نوصي باستعمال إصدار محدّد كما في الرابط، لتجنب حدوث مشاكل غير متوقعة أو تصادمها مع الإصدارات الحديثة. على سبيل المثال، لإستخدام الإصدار الأخير (2.8.0) يمكنك كتابة:
 
+
+<div dir="ltr">
+
 ```html
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
 ```
 
+</div>
+
 **باستعمال NPM:** قم بتنصيب الحزمة من NPM.
+
+
+<div dir="ltr">
 
 ```js
 npm i alpinejs
 ```
 
+</div>
+
 قم باستدعائها وتضمينها في مشروعك.
+
+<div dir="ltr">
+
 ```js
 import 'alpinejs'
 ```
 
+</div>
+
 **لدعم نسخة المتصفّح IE11** يرجى استعمال السُطور البرمجية التالية بدلاً عن السابق.
+
+
+<div dir="ltr">
 
 ```html
 <script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
 <script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer></script>
 ```
 
+</div>
+
 لو تُلاحظ في السطور أعلاه كتبنا [module/nomodule pattern](https://philipwalton.com/articles/deploying-es2015-code-in-production-today/) ، تسمح هذه الأنماط للمتصفحات الحديث تحميل مجموعة الوحدات بشكل تلقائي، بينما ستقوم IE11 والمتصفحات القديمة الأخرى تحميل وحدات IE11 تلقائياً. 
 
 ## طريقة الاستخدام
 
 القائمة المنسدلة (Dropdown) والنوافذ (Modal)
+
+<div dir="ltr">
+
 ```html
 <div x-data="{ open: false }">
     <button @click="open = true">فتح القائمة</button>
@@ -83,7 +113,12 @@ import 'alpinejs'
 </div>
 ```
 
+</div>
+
 *علامات التبويب (Tabs)*
+
+
+<div dir="ltr">
 
 ```html
 <div x-data="{ tab: 'foo' }">
@@ -95,9 +130,14 @@ import 'alpinejs'
 </div>
 ```
 
+</div>
+
 يمكنك أيضاً استخدامه في أماكن أخرى: 
 
 *التحضير المُسبق (Pre-fetching) لمُحتوى HTML.*
+
+
+<div dir="ltr">
 
 ```html
 <div x-data="{ open: false }">
@@ -115,6 +155,8 @@ import 'alpinejs'
     </div>
 </div>
 ```
+
+</div>
 
 ## الشرح
 
@@ -181,6 +223,9 @@ import 'alpinejs'
 
 يمكنك من استخراج مصدر البيانات والتعاملات ذات الصّلة إلى دوال قابلة لإعادة الاستخدام. 
 
+
+<div dir="ltr">
+
 ```html
 <div x-data="dropdown()">
     <button x-on:click="open">فتح</button>
@@ -202,14 +247,21 @@ import 'alpinejs'
 </script>
 ```
 
+</div>
+
 > لمستخدمي مجمّع الوحدات (bundler): يرجى ملاحظة أن الدوال التي يصل إليها Alpine.js في النطاق العام (window). فلاستخدام x-data يجب أن تصرّحها إلى `window`. على سبيل المثال `window.dropdown = function () {}` (لأنه في Webpack ،Rollup ،Parcel وما إلى ذلك، الدّوال التي تكتبتها تكون بشكل إفتراضي ضِمن نطاق الوحدة "module" وليس في نطاق الصفحة `window`).
 
 
 يمكنك أيضاً دمج عدة كائنات متعددة معاً باستخدام محلّل الكائنات (object destructuring).
 
+
+<div dir="ltr">
+
 ```html
 <div x-data="{...dropdown(), ...tabs()}">
 ```
+
+</div>
 
 ---
 
@@ -237,11 +289,16 @@ import 'alpinejs'
 
 `x-show.transition` عبارة عن واجهة "API" يمكنها تحسين `x-show` وجعله أكثر جمالية باستخدام تأثيرات CSS transitions.
 
+
+<div dir="ltr">
+
 ```html
 <div x-show.transition="open">
     يتم عمل تأثير بصري بالظهور "in" و الإختفاء "out"
 </div>
 ```
+
+</div>
 
 | التوجيهات | الوصف |
 | ---: | ---: |
@@ -259,11 +316,16 @@ import 'alpinejs'
 > ملاحظة: يمكنك دمج جميع التاثيرات مع بعضها البعض (على الرغم من أنها غريبة ربما): `x-show.transition.in.duration.100ms.origin.top.right.opacity.scale.85.out.duration.200ms.origin.bottom.left.opacity.scale.95`
 
 > ملاحظة: سينتظر `x-show` إلى حين أن تنتهني جميع التأثيرات، إذا كنت تريد تجاهلها، أضف المعدّل `.immediate`
+
+<div dir="ltr">
+
 ```html
 <div x-show.immediate="open">
     <div x-show.transition="open">
 </div>
 ```
+
+</div>
 ---
 
 ### `x-bind`
@@ -294,6 +356,9 @@ import 'alpinejs'
 يدعم `x-bind` المتغيرات بالإضافة إلى تعبيرات الجافاسكربت في حالة إذا كانت تُرجع قيمة منطقية صحيحة أو خاطئة (`true` أو `false`).
 
 كمثال:
+
+<div dir="ltr">
+
 ```html
 <!-- العبارة: -->
 <button x-bind:disabled="myVar">إضغطني</button>
@@ -304,6 +369,8 @@ import 'alpinejs'
 <!-- في حال myVar == false:  -->
 <button>Click me</button>
 ```
+
+</div>
 
 هنا تتم إضافة السمة `disabled` أو إزالتها بناءً على قيمة المتغيّر `myVar`.
 
@@ -394,9 +461,13 @@ import 'alpinejs'
 إذا أردت تخصيص مهلة الإنتظار يمكنك استخدام الطريقة التالية:
 
 ```
+
+</div>
 <input x-on:input.debounce.750="fetchSomething()">
 <input x-on:input.debounce.750ms="fetchSomething()">
 ```
+
+</div>
 
 **المُعدّل `.camel`**
 **المثال:** `<input x-on:event-name.camel="doSomething()">`
@@ -430,9 +501,13 @@ import 'alpinejs'
 إذا أردت تخصيص مهلة الإنتظار يمكنك استخدام الطريقة التالية:
 
 ```
+
+</div>
 <input x-model.debounce.750="search">
 <input x-model.debounce.750ms="search">
 ```
+
+</div>
 
 ---
 
@@ -489,17 +564,25 @@ import 'alpinejs'
 ### `x-for`
 **المثال:**
 
+
+<div dir="ltr">
+
 ```html
 <template x-for="item in items" :key="item">
     <div x-text="item"></div>
 </template>
 ```
 
+</div>
+
 > ملاحظة: هذا `:key` مفتاح اختياري ، ومع ذلك، نوصى به وبشدة.
 
 يُعدّ `x-for` مناسباً للحالات التي يلزم فيها انشاء عقدة DOM جديدة لكل عنصر داخل المصفوفة. مشابه لـ `v-for` في Vue، ولكن الإختلاف الوحيد هو أنه يجب وضعه في وسم `template` بدلاً من عنصر DOM عادي.
 
 إذا كنت ترغب في الوصول إلى الفهرس الحالي (current index) للتكرار، فاستخدم الصيغة التالية:
+
+
+<div dir="ltr">
 
 ```html
 <template x-for="(item, index) in items" :key="index">
@@ -508,7 +591,12 @@ import 'alpinejs'
 </template>
 ```
 
+</div>
+
 إذا كنت ترغب في الوصول إلى تكرار مصفوفة كائن (array object)، فاستخدم الصيغة التالية:
+
+
+<div dir="ltr">
 
 ```html
 <template x-for="(item, index, collection) in items" :key="index">
@@ -522,12 +610,17 @@ import 'alpinejs'
 </template>
 ```
 
+</div>
+
 > ملاحظة: عند استخدام `x-for`، يجب أن يكون هناك عنصر جذر واحد (element root) على الأقل داخل `template`.
 
 > ملاحظة: عند استخدام template في svg، ستحتاج إلى إضافة [polyfill](https://github.com/alpinejs/alpine/issues/637#issuecomment-654856538) الذي يجب تنفيذه قبل تهيئة Alpine.js. 
 
 #### تداخل `x-for`
 يمكنك عمل حلقات تكرار داخل حلقات x-for ولكن يجب أن نلّف (wrap) كل دورة في عنصر. مثلا:
+
+
+<div dir="ltr">
 
 ```html
 <template x-for="item in items">
@@ -539,9 +632,14 @@ import 'alpinejs'
 </template>
 ```
 
+</div>
+
 #### التكرار داخل مجال:
 
 يدعم Alpine صيغة `i in n`، حيث يمثّل n عدداً صحيحاً مما يسمح لك بعمل تكرار على مجال معين من العناصر.
+
+
+<div dir="ltr">
 
 ```html
 <template x-for="i in 10">
@@ -549,10 +647,15 @@ import 'alpinejs'
 </template>
 ```
 
+</div>
+
 ---
 
 ### `x-transition`
 **المثال:**
+
+
+<div dir="ltr">
 
 ```html
 <div
@@ -566,6 +669,11 @@ import 'alpinejs'
 >...</div>
 ```
 
+</div>
+
+
+<div dir="ltr">
+
 ```html
 <template x-if="open">
     <div
@@ -578,6 +686,8 @@ import 'alpinejs'
     >...</div>
 </template>
 ```
+
+</div>
 
 > المثال أعلاه يستخدم تنسيقات [Tailwind CSS](https://tailwindcss.com/)
 
@@ -598,6 +708,9 @@ import 'alpinejs'
 
 ### `x-spread`
 **المثال:**
+
+
+<div dir="ltr">
 
 ```html
 <div x-data="dropdown()">
@@ -628,6 +741,8 @@ import 'alpinejs'
 </script>
 ```
 
+</div>
+
 يتيح `x-spread` نقل ربط الكائنات التي تحتوي على توجيهات Alpine لعنصر ما، إلى كائن يمكن إعادة استخدامه.
 
 مفاتيح الكائن (object keys) عبارة عن توجيهات (يمكن أن يكون أي توجيهات بما في ذلك المُعدّلات) والقيم عبرة عن عمليات callback يتم تنفيذ قيمها بواسطة Alpine.
@@ -643,11 +758,16 @@ import 'alpinejs'
 
 تتم إزالة سمة `x-cloak` من العنصر أثناء تهيئة Alpine. يساعد هذا في إخفاء DOM المهيأ مسبقاً. لكي يعمل هذا عليك بإضافة التعليمات التالية:
 
+
+<div dir="ltr">
+
 ```html
 <style>
     [x-cloak] { display: none; }
 </style>
 ```
+
+</div>
 
 ### الخصائص السحرية
 
@@ -658,22 +778,32 @@ import 'alpinejs'
 ### `$el`
 **المثال:**
 
+
+<div dir="ltr">
+
 ```html
 <div x-data>
     <button @click="$el.innerHTML = 'foo'">استبدلني بـ "foo"</button>
 </div>
 ```
 
+</div>
+
 `$el` خاصية سحرية للوصول إلى فرع DOM الأساسي.
 
 ### `$refs`
 **المثال:**
+
+
+<div dir="ltr">
 
 ```html
 <span x-ref="foo"></span>
 
 <button x-on:click="$refs.foo.innerText = 'bar'"></button>
 ```
+
+</div>
 
 يسترجع عناصر DOM المميّزة بـ `x-ref` داخل المكوّن، مفيدًا عندما تحتاج عناصر DOM إلى التعديل يدويًا.
 
@@ -682,9 +812,14 @@ import 'alpinejs'
 ### `$event`
 **المثال:**
 
+
+<div dir="ltr">
+
 ```html
 <input x-on:input="alert($event.target.value)">
 ```
+
+</div>
 
 يرجع كائن الحدث "Event"  الأصلي داخل المُتنصت لأحداث المستخدم.
 
@@ -699,6 +834,9 @@ import 'alpinejs'
 ### `$dispatch`
 **المثال:**
 
+
+<div dir="ltr">
+
 ```html
 <div @custom-event="console.log($event.detail.foo)">
     <button @click="$dispatch('custom-event', { foo: 'bar' })">
@@ -706,7 +844,12 @@ import 'alpinejs'
 </div>
 ```
 
+</div>
+
 `$dispatch`هي طريقة مختصرة لإنشاء أحداث مخصصة `CustomEvent` وإرسالها داخلياً باستخدام `.dispatchEvent()` هناك العديد من حالات الاستخدام التي يكون فيها إرسال البيانات بين المكونات من خلال أحداث يحددها المستخدم خيارًا جيداً. هنا يمكنك العثور على [مزيد من المعلومات](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events) حول نظام CustomEvent الأساسي في المتصفحات.
+
+
+<div dir="ltr">
 
 ```html
 <div x-data="{ foo: 'bar' }">
@@ -717,11 +860,16 @@ import 'alpinejs'
 </div>
 ```
 
+</div>
+
 **ملاحظة حول انتشار الحدث** (**Event Propagation**)
 
 إذا كنت ترغب في توقيف الأحداث التي يتم تشغيلها بواسطة عقد HTML داخل نفس التسلسل الهرمي المتداخل (يعني `div` داخل `div` وهكذا)، فيجب عليك استخدام المُعدِّل `.window`.
 
 مثال:
+
+
+<div dir="ltr">
 
 ```html
 <div x-data>
@@ -729,6 +877,8 @@ import 'alpinejs'
     <button @click="$dispatch('custom-event', { foo: 'bar' })">
 <div>
 ```
+
+</div>
 
 > ملاحظة: المثال أعلاه لن يعمل بشكل جيّد. لأنه إذا تم تشغيل الحدث المخصص، فسيتم انتشاره "تشغيله" في العناصر الرئيسية المشتركة بـ div.
 
@@ -738,6 +888,9 @@ import 'alpinejs'
 
 **مثال:**
 
+
+<div dir="ltr">
+
 ```html
 <div x-data @custom-event.window="console.log($event.detail)"></div>
 
@@ -745,7 +898,12 @@ import 'alpinejs'
 <!--عندما تنقر سيطبع console.log "Hello World!". -->
 ```
 
+</div>
+
 يمكنك أيضا استخدام `$dispatch()` لبدء تحديث البيانات من روابط `x-model`. على سبيل المثال:
+
+
+<div dir="ltr">
 
 ```html
 <div x-data="{ foo: 'bar' }">
@@ -755,6 +913,8 @@ import 'alpinejs'
     </span>
 </div>
 ```
+
+</div>
 > ملاحظ: خاصية $dispatch متاحة فقط ضمن تعليمات DOM.
 
 إذا أردت تمرير $dispatch داخل دوال الجافاسكربت فيمكنك تمريرها مباشرة.
@@ -765,6 +925,9 @@ import 'alpinejs'
 
 ### `$nextTick`
 **المثال:**
+
+
+<div dir="ltr">
 
 ```html
 <div x-data="{ fruit: 'apple' }">
@@ -778,6 +941,8 @@ import 'alpinejs'
 </div>
 ```
 
+</div>
+
 `$nextTick` هي خاصية تعني أن التعليمات لا يتم تنفيذها إلا بعد أن يقوم Alpine بتنفيذ تحديثات DOM التفاعلية. هذا مفيد إذا كنت لا تريد التفاعل مع DOM حتى يتم إجراء جميع تحديثات للبيانات.
 
 ---
@@ -785,11 +950,16 @@ import 'alpinejs'
 ### `$watch`
 **المثال:**
 
+
+<div dir="ltr">
+
 ```html
 <div x-data="{ open: false }" x-init="$watch('open', value => console.log(value))">
     <button @click="open = ! open">Toggle Open</button>
 </div>
 ```
+
+</div>
 
 تمكّنك `$watch` في المثال أعلاه أنه عند الضغط فوق الزر "button" ويتم تفعليه `open`، يقوم callback بتنفيذ `console.log` وطباعة القيمة الجديدة.
 
@@ -807,3 +977,5 @@ import 'alpinejs'
 حقوق النشر محفوظة  © 2019-2020 لـ Caleb Porzio والمساهمين.
 
 مرخص بموجب ترخيص MIT، راجع [LICENSE.md](LICENSE.md) للحصول على التفاصيل.
+
+</div>
